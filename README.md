@@ -74,6 +74,11 @@ When triggered, it:
 
 Your DeepLore lorebook entries with `character_present` gates will now activate automatically!
 
+## Known Issues
+
+- The gates aren't updating automatically
+ - In the DeepLore settings, set the auto-refresh to something like 30 seconds. I'll look into figuring out how to auto-refresh DeepLore when I'm able to.
+
 ## Testing & Debugging
 
 Use the **Show Debug Info** button in settings to inspect:
