@@ -2,7 +2,7 @@
 
 A SillyTavern extension that automatically synchronizes character presence data from [Doom's Enhancement Suite](https://github.com/DangerDaza/Dooms-Enhancement-Suite) to [DeepLore-Enhanced](https://github.com/pixelnull/sillytavern-DeepLore-Enhanced), enabling automatic lorebook context filtering based on which characters are present in the scene.
 
-Full disclosure, this is partially vibe coded for my own personal use. I use DeepLore-Enhanced to inject my MemoryBooks, which have tags for each character present in the scene.
+Full disclosure, this is mostly vibe coded for my own personal use. I use DeepLore-Enhanced to inject my MemoryBooks, which have tags for each character present in the scene.
 If you have any feature requests, feel free to submit a request in Issues, but it may take a bit for me to get to it.
 I will try and keep this updated if anything breaks.
 
