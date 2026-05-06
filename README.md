@@ -46,9 +46,12 @@ This bridge is not standalone. It requires all of the following:
 - Obsidian Local REST API plugin in your vault: [obsidian-local-rest-api](https://github.com/coddingtonbear/obsidian-local-rest-api)
 
 Without Doom, there is no scene presence source.
+
 Without DeepLore, there is no vault bridge/summarize/optimize flow.
+
 Without MemoryBooks, there are no MemoryBooks entries to export.
-Without Obsidian Local REST API, folder browsing and Obsidian write flows cannot run.
+
+Without Obsidian Local REST API...how are you even running DeepLore?
 
 ## Features
 
