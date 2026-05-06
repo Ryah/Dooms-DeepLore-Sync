@@ -527,23 +527,23 @@ export function createSettingsUI() {
 
     $('#deeplore_doom_debug_info').on('click', function () {
         console.log(`[${EXTENSION_NAME}] === DEBUG INFO ===`);
-        console.log('SillyTavern global available:', typeof SillyTavern !== 'undefined');
-        console.log('SillyTavern.getContext available:', typeof SillyTavern !== 'undefined' && typeof SillyTavern.getContext === 'function');
+        console.log(`[${EXTENSION_NAME}] SillyTavern global available:`, typeof SillyTavern !== 'undefined');
+        console.log(`[${EXTENSION_NAME}] SillyTavern.getContext available:`, typeof SillyTavern !== 'undefined' && typeof SillyTavern.getContext === 'function');
         const metadata = getChatMetadata();
-        console.log('Chat metadata:', metadata);
+        console.log(`[${EXTENSION_NAME}] Chat metadata:`, metadata);
         const doomData = metadata?.dooms_tracker;
-        console.log('Doom tracker data:', doomData);
-        console.log('lastGeneratedData:', doomData?.lastGeneratedData);
-        console.log('committedTrackerData:', doomData?.committedTrackerData);
-        console.log('Character thoughts (lastGenerated):', doomData?.lastGeneratedData?.characterThoughts);
-        console.log('Character thoughts (committed):', doomData?.committedTrackerData?.characterThoughts);
-        console.log('DeepLore context:', ensureDeepLoreContext());
-        console.log('Active characters:', getActiveCharactersFromDoom());
-        console.log('First name only setting:', settings.firstNameOnly);
-        console.log('MemoryBooks auto-export enabled:', settings.obsidianAutoExportEnabled);
-        console.log('MemoryBooks export folder:', settings.obsidianMemoryFolder);
-        console.log('MemoryBooks lorebook folder map:', settings.obsidianMemoryFolderByLorebook);
-        console.log('Prompt DeepLore post-export popup:', settings.promptDeepLorePostExportPopup);
-        console.log('===================');
+        console.log(`[${EXTENSION_NAME}] Doom tracker data:`, doomData);
+        console.log(`[${EXTENSION_NAME}] lastGeneratedData:`, doomData?.lastGeneratedData);
+        console.log(`[${EXTENSION_NAME}] committedTrackerData:`, doomData?.committedTrackerData);
+        console.log(`[${EXTENSION_NAME}] Character thoughts (lastGenerated):`, doomData?.lastGeneratedData?.characterThoughts);
+        console.log(`[${EXTENSION_NAME}] Character thoughts (committed):`, doomData?.committedTrackerData?.characterThoughts);
+        console.log(`[${EXTENSION_NAME}] DeepLore context:`, ensureDeepLoreContext());
+        console.log(`[${EXTENSION_NAME}] Active characters:`, getActiveCharactersFromDoom());
+        console.log(`[${EXTENSION_NAME}] First name only setting:`, settings.firstNameOnly);
+        console.log(`[${EXTENSION_NAME}] MemoryBooks auto-export enabled:`, settings.obsidianAutoExportEnabled);
+        console.log(`[${EXTENSION_NAME}] MemoryBooks export folder:`, settings.obsidianMemoryFolder);
+        console.log(`[${EXTENSION_NAME}] MemoryBooks lorebook folder map:`, settings.obsidianMemoryFolderByLorebook);
+        console.log(`[${EXTENSION_NAME}] Prompt DeepLore post-export popup:`, settings.promptDeepLorePostExportPopup);
+        console.log(`[${EXTENSION_NAME}] ===================`);
     });
 }

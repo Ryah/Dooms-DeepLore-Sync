@@ -68,6 +68,6 @@ jQuery(() => {
         initialize();
     } catch (error) {
         console.error(`[${EXTENSION_NAME}] ❌ Initialization failed:`, error);
-        console.error(error.stack);
+        console.error(`[${EXTENSION_NAME}] Stack:`, error?.stack || error);
     }
 });
