@@ -1,208 +1,184 @@
-# DeepLore + Doom Sync
+# DeepLore + Doom Sync for SillyTavern
 
-DeepLore + Doom Sync is a bridge extension for [SillyTavern](https://github.com/SillyTavern/SillyTavern).
+DeepLore + Doom Sync is a companion bridge extension for [SillyTavern](https://github.com/SillyTavern/SillyTavern).
 
-It connects:
+It acts as a bridge between these 3 extensions:
 
-- [Doom's Enhancement Suite](https://github.com/DangerDaza/Dooms-Enhancement-Suite) (which tracks who is currently in the scene)
-- [DeepLore-Enhanced](https://github.com/pixelnull/sillytavern-DeepLore-Enhanced) (which manages lorebook/context behavior and Obsidian workflows)
+- [Doom's Enhancement Suite](https://github.com/DangerDaza/Dooms-Enhancement-Suite) scene tracking
+- [SillyTavern-MemoryBooks](https://github.com/Nexus333/st-memorybooks) memory generation
+- [DeepLore-Enhanced](https://github.com/pixelnull/sillytavern-DeepLore-Enhanced) Obsidian + lore processing
 
-In plain terms: this extension keeps your character-aware lore and MemoryBooks workflow in sync automatically, so you do not have to keep doing manual steps every time the scene changes.
+So instead of manually updating character presence, exporting memories, and sorting notes by hand, this extension ties those steps together for you.
 
-## Important: Required Dependencies
+This project is still evolving and feedback is welcome.
 
-This bridge is not standalone. It will not work by itself.
+## Contents
 
-You must have all of the following:
-
-- [SillyTavern](https://github.com/SillyTavern/SillyTavern)
-- [Doom's Enhancement Suite](https://github.com/DangerDaza/Dooms-Enhancement-Suite)
-- [DeepLore-Enhanced](https://github.com/pixelnull/sillytavern-DeepLore-Enhanced)
-- [SillyTavern-MemoryBooks](https://github.com/Nexus333/st-memorybooks)
-- Obsidian Local REST API plugin in your Obsidian vault: [obsidian-local-rest-api](https://github.com/coddingtonbear/obsidian-local-rest-api)
-
-## Who is this made for?
-
-When roleplay scenes shift quickly, manual context management gets annoying fast.
-
-Typical pain points this extension solves:
-
-- "I forgot to update who is present, so wrong lore triggered."
-- "My MemoryBooks are generated, but I still have to manually move/export them into Obsidian."
-- "Different chats/lorebooks should go to different vault folders, but setting paths by hand is tedious."
-- "After export, I want summary/keyword steps quickly without hunting through menus."
-
-If this sounds like you, then this may help.
-
-## What This Extension Does
-
-### 1) Automatic Present Character Sync (Doom -> DeepLore)
-
-The extension reads Doom's current present-character tracking and updates DeepLore's character context automatically.
-
-Example:
-
-- Scene starts with Alec and Flora present.
-- Doom marks Alec/Flora as present.
-- DeepLore gates that rely on present characters update automatically.
-- When Alec leaves later, those Alec-specific entries stop triggering without manual commands.
-
-Why this matters:
-
-- Fewer wrong lore injections.
-- Less manual correction during long sessions.
-
-### 2) Automatic MemoryBooks Export to Obsidian
-
-When MemoryBooks entries are produced, this extension can export those entries to Obsidian automatically.
-
-It exports only MemoryBooks entries, and writes a clean note with useful metadata so the note is easier to track later.
-
-Example:
-
-- You finish a scene and MemoryBooks updates a lorebook.
-- Export runs automatically.
-- The note appears in your chosen vault folder with a clean filename/title match.
-
-Why this matters:
-
-- No copy/paste routine.
-- Obsidian stays up-to-date with your current chat memory workflow.
-
-### 3) Better Present Character Accuracy for Exported Notes
-
-For exported MemoryBooks notes, present characters are resolved from the exact message range that generated that memory whenever possible.
-
-Example:
-
-- A memory came from messages 120-135.
-- The extension tries to read character presence from that same range.
-- You get character tags that better match the moment the memory was created.
-
-Why this matters:
-
-- Better historical accuracy in saved notes.
-- Fewer "current scene" mismatches on older memories.
-
-### 4) Smart Folder Routing (Global + Per-Lorebook)
-
-You can set:
-
-- one default export folder
-- optional folder overrides per lorebook
-
-If a lorebook has a custom folder, that wins. If not, default folder is used.
-
-Example:
-
-- `Flora MemoryBooks` -> `Lorebooks/Flora`
-- `Regency Lore` -> `Lorebooks/Regency`
-- everything else -> default folder
-
-Why this matters:
-
-- Cleaner vault organization.
-- Less manual sorting after export.
-
-### 5) Live Vault Folder Browser (No More Guessing Paths)
-
-Instead of typing folder paths by hand, you can load folders directly from Obsidian Local REST API and pick them in the UI.
-
-Why this matters:
-
-- Fewer path typos.
-- Faster setup, especially in large vaults.
-
-### 6) One Post-Export Popup for Optional Follow-Up Actions
-
-After export, you can optionally show one popup where you choose what to run now:
-
-- DeepLore summarize
-- DeepLore keyword optimize
-
-This is a single popup toggle in settings, with per-run choices inside the popup.
-
-Why this matters:
-
-- Keeps workflow fast and consistent.
-- No duplicated prompts.
+- [Installation](#installation)
+- [Requirements](#requirements)
+- [Features](#features)
+- [Troubleshooting](#troubleshooting)
+- [Customization](#customization)
+- [Credits](#credits)
+- [License](#license)
 
 ## Installation
 
-Install via SillyTavern's extension installer using:
+1. Open SillyTavern.
+2. Go to Extensions.
+3. Choose Install Extension.
+4. Paste this URL:
 
 ```text
 https://github.com/Ryah/Dooms-DeepLore-Sync
 ```
 
-## Settings Guide
+5. Install and reload SillyTavern.
 
-### Sync Behavior
+## Requirements
 
-- Enable automatic synchronization: master on/off switch.
-- Sync first names only: turns "Alec Hamilton" into "Alec" for matching if your DeepLore gates use first names.
+This bridge is not standalone. It requires all of the following:
 
-### Obsidian Export
+- [SillyTavern](https://github.com/SillyTavern/SillyTavern)
+- [Doom's Enhancement Suite](https://github.com/DangerDaza/Dooms-Enhancement-Suite)
+- [DeepLore-Enhanced](https://github.com/pixelnull/sillytavern-DeepLore-Enhanced)
+- [SillyTavern-MemoryBooks](https://github.com/Nexus333/st-memorybooks)
+- Obsidian Local REST API plugin in your vault: [obsidian-local-rest-api](https://github.com/coddingtonbear/obsidian-local-rest-api)
 
-- Auto-export MemoryBooks entries to Obsidian: enables automatic export.
-- Show post-export popup to choose summarize and keyword optimize: controls whether the optional follow-up popup appears.
-- Default export folder: fallback folder when no lorebook-specific folder is set.
+Without Doom, there is no scene presence source.
+Without DeepLore, there is no vault bridge/summarize/optimize flow.
+Without MemoryBooks, there are no MemoryBooks entries to export.
+Without Obsidian Local REST API, folder browsing and Obsidian write flows cannot run.
 
-### Lorebook Folder Routing
+## Features
 
-- Load Vault Folders: fetches folders from your configured DeepLore vault connection.
-- Use As Default: sets currently selected folder as default export folder.
-- Assign Mapping: maps selected lorebook to selected folder.
-- Remove Mapping: removes folder override for that lorebook.
-- Advanced mapping text box: optional direct edit mode (`Lorebook Name = Folder/Path`).
+### Automatic Present Character Sync
 
-### Timing
+Reads Doom's tracked present characters and mirrors them into DeepLore context.
 
-- Initial Delay (ms): wait time before checking Doom data.
-- Poll Interval (ms): retry rate when data is not ready yet.
-- Max Poll Attempts: retry count before stopping.
+Why you want this:
 
-## Quick Real-World Example
+- Prevents wrong lore from triggering after scene changes.
+- Removes repetitive manual updates.
 
-You run two different story lines in one vault:
+Example:
 
-- Flora chat should export to `Lorebooks/Flora`
-- Regency chat should export to `Lorebooks/Regency`
+- Alec and Flora are present at the start of a scene.
+- Doom marks them present.
+- DeepLore gates that depend on those names activate automatically.
+- Later Alec leaves, and Alec-only lore naturally stops applying.
 
-With this extension:
+### Automatic MemoryBooks Export to Obsidian
 
-1. You load vault folders once from the picker.
-2. You map each lorebook to the right folder.
-3. MemoryBooks export and route automatically.
-4. Present characters are carried into exported frontmatter.
-5. You optionally run summarize/optimize from one popup.
+When MemoryBooks updates a lorebook, matching MemoryBooks entries can be exported to Obsidian automatically.
 
-Result: less maintenance, cleaner vaults, and fewer context mistakes.
+Why you want this:
+
+- No copy/paste memory workflow.
+- Your vault stays in sync with ongoing chats.
+
+Example:
+
+- A new MemoryBooks entry is created after a scene.
+- Export runs automatically.
+- A note is written with a clean filename and useful metadata.
+
+### Better Character Accuracy in Exported Notes
+
+For exported notes, present characters are resolved from the exact MemoryBooks source range whenever possible.
+
+Why you want this:
+
+- More trustworthy historical context.
+- Fewer "this was from a different moment" mismatches.
+
+Example:
+
+- A memory came from message range 120-135.
+- Character tags are resolved from that same range, not just current live state.
+
+### Smart Folder Routing (Default + Per-Lorebook)
+
+Supports one global default export folder and optional per-lorebook folder overrides.
+
+Why you want this:
+
+- Keeps large vaults organized automatically.
+- Avoids post-export cleanup.
+
+Example:
+
+- Flora lorebook exports to `Lorebooks/Flora`
+- Regency lorebook exports to `Lorebooks/Regency`
+- Anything unmapped uses your default folder.
+
+### Live Vault Folder Browser
+
+Loads folder choices directly from your Obsidian vault via Local REST API, so you can pick instead of typing paths.
+
+Why you want this:
+
+- Fewer path mistakes.
+- Faster setup for big vaults.
+
+### Single Post-Export Action Popup
+
+Optional popup after export lets you choose follow-up actions per run:
+
+- DeepLore summarize
+- DeepLore keyword optimize
+
+Why you want this:
+
+- One consistent decision step.
+- Quick control without opening multiple menus.
 
 ## Troubleshooting
 
 ### Characters are not syncing
 
-- Verify both [Doom's Enhancement Suite](https://github.com/DangerDaza/Dooms-Enhancement-Suite) and [DeepLore-Enhanced](https://github.com/pixelnull/sillytavern-DeepLore-Enhanced) are installed and enabled.
-- Confirm Doom tracker data is actually being generated in your current chat.
-- Increase Initial Delay if updates arrive late.
-- Use Sync Now (Test) in settings.
+- Confirm [Doom's Enhancement Suite](https://github.com/DangerDaza/Dooms-Enhancement-Suite) and [DeepLore-Enhanced](https://github.com/pixelnull/sillytavern-DeepLore-Enhanced) are installed and enabled.
+- Confirm Doom tracker data exists in the active chat.
+- Increase Initial Delay if Doom updates arrive later than sync checks.
+- Use Sync Now (Test) from settings.
 
-### Export features are not working
+### Export is not working
 
+- Confirm [SillyTavern-MemoryBooks](https://github.com/Nexus333/st-memorybooks) is installed and generating entries.
 - Confirm DeepLore vault settings are configured.
-- Confirm Obsidian Local REST API plugin is installed and running: [obsidian-local-rest-api](https://github.com/coddingtonbear/obsidian-local-rest-api)
-- Confirm API key/connection in DeepLore is valid.
+- Confirm [obsidian-local-rest-api](https://github.com/coddingtonbear/obsidian-local-rest-api) is installed and running.
+- Confirm host/port/api key are valid in DeepLore settings.
 
 ### Folder picker does not load
 
-- Check that DeepLore has an enabled primary vault.
-- Check that Local REST API is reachable from SillyTavern.
+- Confirm DeepLore has an enabled primary vault.
+- Confirm Obsidian Local REST API is reachable from SillyTavern.
 
-### Need deeper debug info
+### Debugging details
 
 - Use Show Debug Info in extension settings.
 - Open browser console and look for logs starting with `[sillytavern-DeepLore-Doom-Sync]`.
+
+## Customization
+
+### Settings Panel
+
+The settings panel is organized into practical sections:
+
+1. Sync Behavior
+2. Obsidian Export
+3. Lorebook Folder Routing
+4. Timing
+5. Tools and Status
+
+### Quick settings reference
+
+- Enable automatic synchronization: master on/off.
+- Sync first names only: useful when gates use first names but Doom tracks full names.
+- Auto-export MemoryBooks entries: writes MemoryBooks notes to Obsidian automatically.
+- Show post-export popup: choose summarize/optimize each run.
+- Default export folder: fallback path.
+- Lorebook mapping controls: assign different lorebooks to different folders.
 
 ## Credits
 
@@ -210,3 +186,7 @@ Result: less maintenance, cleaner vaults, and fewer context mistakes.
 - [DeepLore-Enhanced](https://github.com/pixelnull/sillytavern-DeepLore-Enhanced) by pixelnull
 - [SillyTavern-MemoryBooks](https://github.com/Nexus333/st-memorybooks) by Nexus333
 - GitHub Copilot (GPT-5.3-Codex) for implementation support and iteration help
+
+## License
+
+See [LICENSE](LICENSE).
