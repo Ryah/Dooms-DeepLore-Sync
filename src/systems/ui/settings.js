@@ -181,7 +181,7 @@ export function createSettingsUI() {
             </style>
             <div class="inline-drawer">
                 <div class="inline-drawer-toggle inline-drawer-header">
-                    <b>DeepLore + Doom Sync</b>
+                    <b>DoomLore Mesh</b>
                     <div class="inline-drawer-icon fa-solid fa-circle-chevron-down down"></div>
                 </div>
                 <div class="inline-drawer-content dds-content">

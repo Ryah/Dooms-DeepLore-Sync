@@ -1,4 +1,5 @@
-export const EXTENSION_NAME = 'sillytavern-DeepLore-Doom-Sync';
+export const EXTENSION_NAME = 'sillytavern-DoomLore-Mesh';
+export const LEGACY_EXTENSION_NAME = 'sillytavern-DeepLore-Doom-Sync';
 export const DEBUG = true;
 
 export const defaultSettings = {

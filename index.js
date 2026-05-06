@@ -1,5 +1,5 @@
 /**
- * DeepLore + Doom Sync Extension
+ * DoomLore Mesh Extension
  *
  * Automatically synchronizes Doom's Enhancement Suite character tracking
  * with DeepLore-Enhanced's contextual gates.

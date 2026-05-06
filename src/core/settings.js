@@ -1,10 +1,10 @@
-import { EXTENSION_NAME, DEBUG, defaultSettings } from './config.js';
+import { EXTENSION_NAME, LEGACY_EXTENSION_NAME, DEBUG, defaultSettings } from './config.js';
 
 export const settings = { ...defaultSettings };
 
 export function loadSettings() {
     try {
-        const saved = localStorage.getItem(`${EXTENSION_NAME}_settings`);
+        const saved = localStorage.getItem(`${EXTENSION_NAME}_settings`) || localStorage.getItem(`${LEGACY_EXTENSION_NAME}_settings`);
         const parsed = saved ? JSON.parse(saved) : {};
         Object.assign(settings, defaultSettings, parsed || {});
 

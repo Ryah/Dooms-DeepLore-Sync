@@ -1,6 +1,6 @@
-# DeepLore + Doom Sync for SillyTavern
+# DoomLore Mesh for SillyTavern
 
-DeepLore + Doom Sync is a companion bridge extension for [SillyTavern](https://github.com/SillyTavern/SillyTavern).
+DoomLore Mesh is a companion bridge extension for [SillyTavern](https://github.com/SillyTavern/SillyTavern).
 
 It acts as a bridge between these 3 extensions:
 
@@ -30,7 +30,7 @@ This project is still evolving and feedback is welcome.
 4. Paste this URL:
 
 ```text
-https://github.com/Ryah/Dooms-DeepLore-Sync
+https://github.com/Ryah/DoomLore-Mesh
 ```
 
 5. Install and reload SillyTavern.
@@ -157,7 +157,7 @@ Why you want this:
 ### Debugging details
 
 - Use Show Debug Info in extension settings.
-- Open browser console and look for logs starting with `[sillytavern-DeepLore-Doom-Sync]`.
+- Open browser console and look for logs starting with `[sillytavern-DoomLore-Mesh]`.
 
 ## Customization
 

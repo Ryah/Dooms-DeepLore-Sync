@@ -1,9 +1,9 @@
 {
-    "display_name": "DeepLore + Doom Sync",
+    "display_name": "DoomLore Mesh",
     "loading_order": 101,
     "js": "index.js",
     "author": "Ryah",
     "version": "1.0.0",
-    "homePage": "https://github.com/Ryah/Dooms-DeepLore-Sync",
-    "description": "A SillyTavern extenstion to bridge the Present Characters in Dooms Enhancement Suite to DeepLore-Enhanced Context Gates."
+    "homePage": "https://github.com/Ryah/DoomLore-Mesh",
+    "description": "A SillyTavern bridge that meshes Doom's Enhancement Suite, MemoryBooks, and DeepLore-Enhanced workflows."
 }

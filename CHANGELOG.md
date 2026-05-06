@@ -138,7 +138,7 @@ This changelog intentionally tracks integration work across both `sillytavern-De
 ```markdown
 ## Summary
 - Add reusable `upsertConvertedEntry(...)` helper in the import bridge for single-entry conversion/upsert workflows.
-  - Future lorebook automation support, added example for MemoryBooks in my [companion extension](https://github.com/Ryah/Dooms-DeepLore-Sync).
+  - Future lorebook automation support, added example for MemoryBooks in my [companion extension](https://github.com/Ryah/DoomLore-Mesh).
   - My example is pretty hardcoded for specifically MemoryBooks, so I didn't want to include it in this PR to avoid any future conflicts.
 - Add [Polyceph](https://github.com/nialyn-mid/polyceph) compatibility hooks for retrieval/publish integration:
   - `deepLoreEnhanced_polycephRetrieve`

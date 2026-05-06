@@ -279,7 +279,7 @@ async function runDeepLoreSummary(exportedEntries) {
         const result = await summarizeEntries(summarizeTargets);
         toastr.success(
             `DeepLore summaries: ${result.generated} written, ${result.skipped} skipped, ${result.failed} failed${result.aborted ? `, ${result.aborted} aborted` : ''}.`,
-            'DeepLore + Doom Sync',
+            'DoomLore Mesh',
         );
     } catch (error) {
         console.warn(`[${EXTENSION_NAME}] DeepLore summarize failed:`, error);
@@ -322,7 +322,7 @@ async function runDeepLoreOptimize(exportedEntries) {
     if (attempted > 0) {
         toastr.info(
             `DeepLore optimize finished: ${attempted - failed} processed, ${failed} failed to generate suggestions.`,
-            'DeepLore + Doom Sync',
+            'DoomLore Mesh',
         );
     }
 }
@@ -453,7 +453,7 @@ export async function handleWorldInfoUpdated(lorebookName, lorebookData) {
             const summary = fallbackWarnings[0];
             toastr.warning(
                 `Used current tracked present_characters fallback for ${fallbackWarnings.length} exported entr${fallbackWarnings.length === 1 ? 'y' : 'ies'}. ${summary}`,
-                'DeepLore + Doom Sync',
+                'DoomLore Mesh',
                 { timeOut: 10000 },
             );
         }
