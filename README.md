@@ -100,21 +100,6 @@ Example:
 - A memory came from message range 120-135.
 - Character tags are resolved from that same range, not just current live state.
 
-### Smart Folder Routing (Default + Per-Lorebook)
-
-Supports one global default export folder and optional per-lorebook folder overrides.
-
-Why you want this:
-
-- Keeps large vaults organized automatically.
-- Avoids post-export cleanup.
-
-Example:
-
-- Flora lorebook exports to `Lorebooks/Flora`
-- Regency lorebook exports to `Lorebooks/Regency`
-- Anything unmapped uses your default folder.
-
 ### Live Vault Folder Browser
 
 Loads folder choices directly from your Obsidian vault via Local REST API, so you can pick instead of typing paths.
